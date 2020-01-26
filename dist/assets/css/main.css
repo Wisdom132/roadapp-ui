@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 * {
-  font-family: 'Montserrat',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 header,
@@ -11,7 +10,7 @@ footer {
   padding-left: 300px;
 }
 
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
 
   header,
   main,
@@ -20,6 +19,6 @@ footer {
   }
 }
 
-/* .container {
-  width: 95% !important;
-} */
+.container {
+  width: 90% !important;
+}

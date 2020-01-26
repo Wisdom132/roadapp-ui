@@ -73,6 +73,7 @@ export default {
             path: 'user/basicinfo'
           })
         } else {
+          console.log('Wrong Login credentials')
           swal('Opps', 'You cant Login at this Time', 'error')
         }
       } catch (err) {
