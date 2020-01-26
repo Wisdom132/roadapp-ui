@@ -1,0 +1,31 @@
+{
+  "name": "project-frontend",
+  "version": "1.0.0",
+  "description": "My cat&#39;s meow Nuxt.js project",
+  "author": "Wisdom Ekpot",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "nuxt": "^2.0.0",
+    "sweetalert": "^2.1.2",
+    "vue-jwt-decode": "^0.1.0",
+    "vue-paystack": "^2.0.2",
+    "vue-qrcode-reader": "^2.1.1",
+    "vue-select": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  }
+}
