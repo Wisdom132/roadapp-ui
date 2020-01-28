@@ -21,9 +21,10 @@
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <i class="fas fa-car"></i>
                     <input v-model="plate_number" class="validate" type="text" />
-                    <label for="email">plate number</label>
+                    <label for="email">
+                      <i class="fas fa-car"></i>plate number
+                    </label>
                   </div>
                 </div>
 

@@ -13,12 +13,12 @@
                 </div>
                 <div class="row"></div>
                 <div class="row">
-                  <div class="input-field col l6">
+                  <div class="input-field col l6 s12">
                     <i class="fas fa-user prefix"></i>
                     <input class="validate" id="name" v-model="register.name" type="text" />
                     <label for="name" data-error="wrong" data-success="right">Name</label>
                   </div>
-                  <div class="input-field col l6">
+                  <div class="input-field col l6 s12">
                     <i class="fas fa-phone-volume prefix"></i>
                     <input
                       class="validate"
@@ -30,35 +30,35 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field col l6">
+                  <div class="input-field col l6 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
                     <input class="validate" id="address" v-model="register.address" type="text" />
                     <label for="address" data-error="wrong" data-success="right">Address</label>
                   </div>
-                  <div class="input-field col l3">
+                  <div class="input-field col l3 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
                     <input class="validate" id="phone" v-model="register.lga" type="text" />
                     <label for="phone" data-error="wrong" data-success="right">LGA</label>
                   </div>
 
-                  <div class="input-field col l3">
+                  <div class="input-field col l3 s12">
                     <i class="fas fa-transgender-alt prefix"></i>
-                    <select>
+                    <select v-model="register.gender">
                       <option value disabled selected>Choose gender</option>
-                      <option value="male">Male</option>
-                      <option value="femalel">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
                     </select>
 
                     <label for="gender" data-error="wrong" data-success="right">Gender</label>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="input-field col l6">
+                  <div class="input-field col l6 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
                     <input class="validate" id="state" v-model="register.state" type="text" />
                     <label for="state" data-error="wrong" data-success="right">State</label>
                   </div>
-                  <div class="input-field col l6">
+                  <div class="input-field col l6 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
                     <input
                       class="validate"
@@ -74,7 +74,7 @@
                   <h4>Vehicle Registration Details</h4>
                 </div>
                 <div class="row">
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="fas fa-car prefix"></i>
                     <input
                       class="validate"
@@ -84,7 +84,7 @@
                     />
                     <label for="vehicleMake" data-error="wrong" data-success="right">vehicle Make</label>
                   </div>
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="material-icons prefix">tonality</i>
                     <input
                       class="validate"
@@ -94,7 +94,7 @@
                     />
                     <label for="vehicle_model" data-error="wrong" data-success="right">Vehicle Model</label>
                   </div>
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="material-icons prefix">trending_up</i>
 
                     <input
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="material-icons prefix">center_focus_strong</i>
                     <select v-model="register.vehicle_class">
                       <option value disabled selected>Choose Vehicle Class</option>
@@ -129,7 +129,7 @@
                     </select>
                     <label for="vehicle_class" data-error="wrong" data-success="right">Vehicle Class</label>
                   </div>
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="material-icons prefix">transform</i>
                     <input
                       class="validate"
@@ -143,7 +143,7 @@
                       data-success="right"
                     >Engine Number</label>
                   </div>
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="fas fa-tint prefix"></i>
                     <input
                       class="validate"
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="fas fa-users-class prefix"></i>
                     <input
                       class="validate"
@@ -170,11 +170,11 @@
                       data-success="right"
                     >Chassic Number</label>
                   </div>
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
                     <select
-                      v-model="register.registration_lga"
-                      @change="state(register.registration_lga)"
+                      v-model="register.registration_state"
+                      @change="state(register.registration_state)"
                     >
                       <option value disabled selected>Choose State</option>
                       <option value="AkwaIbom">Akwa Ibom</option>
@@ -183,44 +183,63 @@
                       <option value="Ekiti">Ekiti</option>
                       <option value="Lagos">Lagos</option>
                     </select>
-                    <!-- <input
-                      class="validate"
-                      id="registration_state"
-                      v-model="register.registration_state"
-                      type="text"
-                    />-->
+
                     <label
                       for="registration_state"
                       data-error="wrong"
                       data-success="right"
                     >Registration State</label>
                   </div>
-                  <div class="input-field col l4">
+                  <div class="input-field col l4 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
+                    <div v-show="crossriver">
+                      <select v-model="register.registration_lga">
+                        <option value disabled selected>Choose LGA</option>
+                        <option value="Cal">Calabar Municipal</option>
+                        <option value="KMM">Ikom</option>
+                        <option value="BRA">Obubra</option>
+                        <option value="UDU">Obudu</option>
+                      </select>
+                    </div>
 
-                    <select v-model="register.registration_lga" v-if="AkwaIbom">
-                      <option value disabled selected>Choose LGA</option>
-                      <option value="Cal">Calabar Municipal</option>
-                      <option value="KMM">Ikom</option>
-                      <option value="BRA">Obubra</option>
-                      <option value="UDU">Obudu</option>
-                    </select>
+                    <div v-show="lagos">
+                      <select v-model="register.registration_lga">
+                        <option value disabled selected>Choose LGA</option>
+                        <option value="Cal">Calabar Municipal</option>
+                        <option value="KMM">Ikom</option>
+                        <option value="BRA">Obubra</option>
+                        <option value="UDU">Obudu</option>
+                      </select>
+                    </div>
 
-                    <select v-model="register.registration_lga" v-if="lag">
-                      <option value disabled selected>Choose LGA</option>
-                      <option value="Cal">Calabar Municipal</option>
-                      <option value="KMM">Ikom</option>
-                      <option value="BRA">Obubra</option>
-                      <option value="UDU">Obudu</option>
-                    </select>
+                    <div v-show="akwaibom">
+                      <select v-model="register.registration_lga">
+                        <option value disabled selected>Choose LGA</option>
+                        <option value="ABK">Abak</option>
+                        <option value="ABT">Onna</option>
+                        <option value="AED">Ekpe Atai</option>
+                        <option value="AEE">Etim Ekpo</option>
+                      </select>
+                    </div>
 
-                    <select v-model="register.registration_lga" v-if="eki">
-                      <option value disabled selected>Choose LGA</option>
-                      <option value="Cal">Calabar Municipal</option>
-                      <option value="KMM">Ikom</option>
-                      <option value="BRA">Obubra</option>
-                      <option value="UDU">Obudu</option>
-                    </select>
+                    <div v-show="ekiti">
+                      <select v-model="register.registration_lga">
+                        <option value disabled selected>Choose LGA</option>
+                        <option value="KER">Ikere Ekiti</option>
+                        <option value="AMK">Aramoko Ekiti</option>
+                        <option value="EFY">Efon Alya</option>
+                        <option value="KLE">Ikole Ekiti</option>
+                      </select>
+                    </div>
+                    <div v-show="abuja">
+                      <select v-model="register.registration_lga">
+                        <option value disabled selected>Choose LGA</option>
+                        <option value="RSH">Karshi Area Councle</option>
+                        <option value="RBC">Rubuchi Admin councle</option>
+                        <option value="AWL">Kwali Area Councle</option>
+                        <option value="ABC">Abuja municipal</option>
+                      </select>
+                    </div>
 
                     <label
                       for="registration_lga"
@@ -231,7 +250,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="input-field col l6">
+                  <div class="input-field col l6 s12">
                     <i class="fas fa-key prefix"></i>
                     <input
                       class="validate"
@@ -259,9 +278,11 @@
 export default {
   data() {
     return {
-      AkwaIbom: false,
-      eki: false,
-      lag: false,
+      akwaibom: false,
+      ekiti: false,
+      lagos: false,
+      abuja: false,
+      crossriver: false,
       register: {
         name: '',
         phone_number: '',
@@ -270,7 +291,6 @@ export default {
         state: '',
         lga: '',
         nationality: '',
-
         vehicle_make: '',
         vehicle_model: '',
         vehicle_production_year: '',
@@ -287,16 +307,43 @@ export default {
   },
   mounted() {
     if (process.client) {
-      // document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('select')
       var instances = M.FormSelect.init(elems)
-      // })
     }
   },
   methods: {
     state(id) {
+      // console.log(id)
       if (id == 'AkwaIbom') {
-        this.AkwaIbom = true
+        this.akwaibom = !this.akwaibom
+      }
+      if (id == 'Ekiti') {
+        this.ekiti = true
+        this.akwaibom = false
+        this.abuja = false
+        this.lagos = false
+        this.crossriver = false
+      }
+      if (id == 'Abuja') {
+        this.abuja = true
+        this.akwaibom = false
+        this.ekiti = false
+        this.lagos = false
+        this.crossriver = false
+      }
+      if (id == 'CrossRiver') {
+        this.abuja = false
+        this.akwaibom = false
+        this.ekiti = false
+        this.lagos = false
+        this.crossriver = true
+      }
+      if (id == 'Lagos') {
+        this.abuja = false
+        this.akwaibom = false
+        this.ekiti = false
+        this.lagos = true
+        this.crossriver = false
       }
     },
 

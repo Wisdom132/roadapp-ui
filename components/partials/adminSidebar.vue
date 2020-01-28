@@ -26,14 +26,14 @@
 
       <li>
         <nuxt-link to="/admin/register" class="waves-effect white-text">
-          <i class="fas fa-plus text-light"></i>Register Vehicle
+          <i class="fas fa-plus text-light"></i>Register New Vehicle
         </nuxt-link>
       </li>
       <li></li>
 
       <li>
         <nuxt-link to="/admin/vehicles" class="waves-effect white-text">
-          <i class="fas fa-car text-light"></i>Vehicle
+          <i class="fas fa-car text-light"></i>View Registered Vehicle
         </nuxt-link>
       </li>
       <li>
@@ -64,3 +64,8 @@ export default {
   }
 }
 </script>
+<style  scoped>
+.fas {
+  color: white;
+}
+</style>
