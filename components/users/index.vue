@@ -2,11 +2,7 @@
   <section>
     <div class="container">
       <div class="row">
-        <div
-          class="col s12 m4 l4"
-          v-for="(vehicle, index) in vehicles"
-          :key="index"
-        >
+        <div class="col s12 m4 l4" v-for="(vehicle, index) in vehicles" :key="index">
           <div class="card horizontal">
             <div class="card-image">
               <img :src="vehicle.qrcode" class="responsive-img" />
@@ -15,9 +11,9 @@
               <div class="card-content">
                 <ul>
                   <li>
-                    Plate Number:
-                    <br />
-                    {{ vehicle.plate_number }}
+                    <h5>
+                      <b>{{ vehicle.plate_number }}</b>
+                    </h5>
                   </li>
                   <li>
                     Date Issued:
@@ -32,9 +28,7 @@
                 </ul>
               </div>
               <div class="card-action">
-                <nuxt-link :to="'/admin/vehicledetails/' + vehicle._id"
-                  >Details</nuxt-link
-                >
+                <nuxt-link :to="'/admin/vehicledetails/' + vehicle._id">Details</nuxt-link>
               </div>
             </div>
           </div>

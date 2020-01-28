@@ -114,12 +114,19 @@
                 <div class="row">
                   <div class="input-field col l4">
                     <i class="material-icons prefix">center_focus_strong</i>
-                    <input
-                      class="validate"
-                      id="vehicle_class"
-                      v-model="register.vehicle_class"
-                      type="text"
-                    />
+                    <select v-model="register.vehicle_class">
+                      <option value disabled selected>Choose Vehicle Class</option>
+                      <option value="Commercial">Commercial(Goods only)</option>
+                      <option value="Taxi/Car Hire">Taxi/Car Hire</option>
+                      <option value="Stage Carriage(8-15 Persons)">Stage Carriage(8-15 Persons)</option>
+                      <option
+                        value="Stage Carriage(Over 15 Persons)"
+                      >Stage Carriage(Over 15 Persons)</option>
+                      <option value="Omnibus">Omnibus</option>
+                      <option value="Private(car)">Private(car)</option>
+                      <option value="Motorcyle/Tricyle">Motorcyle/Tricyle</option>
+                      <option value="Tractor/Equipment">Tractor / Equipment</option>
+                    </select>
                     <label for="vehicle_class" data-error="wrong" data-success="right">Vehicle Class</label>
                   </div>
                   <div class="input-field col l4">
@@ -165,12 +172,23 @@
                   </div>
                   <div class="input-field col l4">
                     <i class="fas fa-map-marker-alt prefix"></i>
-                    <input
+                    <select
+                      v-model="register.registration_lga"
+                      @change="state(register.registration_lga)"
+                    >
+                      <option value disabled selected>Choose State</option>
+                      <option value="AkwaIbom">Akwa Ibom</option>
+                      <option value="Abuja">Abuja</option>
+                      <option value="CrossRiver">Cross River</option>
+                      <option value="Ekiti">Ekiti</option>
+                      <option value="Lagos">Lagos</option>
+                    </select>
+                    <!-- <input
                       class="validate"
                       id="registration_state"
                       v-model="register.registration_state"
                       type="text"
-                    />
+                    />-->
                     <label
                       for="registration_state"
                       data-error="wrong"
@@ -179,12 +197,31 @@
                   </div>
                   <div class="input-field col l4">
                     <i class="fas fa-map-marker-alt prefix"></i>
-                    <input
-                      class="validate"
-                      id="registration_lga"
-                      v-model="register.registration_lga"
-                      type="text"
-                    />
+
+                    <select v-model="register.registration_lga" v-if="AkwaIbom">
+                      <option value disabled selected>Choose LGA</option>
+                      <option value="Cal">Calabar Municipal</option>
+                      <option value="KMM">Ikom</option>
+                      <option value="BRA">Obubra</option>
+                      <option value="UDU">Obudu</option>
+                    </select>
+
+                    <select v-model="register.registration_lga" v-if="lag">
+                      <option value disabled selected>Choose LGA</option>
+                      <option value="Cal">Calabar Municipal</option>
+                      <option value="KMM">Ikom</option>
+                      <option value="BRA">Obubra</option>
+                      <option value="UDU">Obudu</option>
+                    </select>
+
+                    <select v-model="register.registration_lga" v-if="eki">
+                      <option value disabled selected>Choose LGA</option>
+                      <option value="Cal">Calabar Municipal</option>
+                      <option value="KMM">Ikom</option>
+                      <option value="BRA">Obubra</option>
+                      <option value="UDU">Obudu</option>
+                    </select>
+
                     <label
                       for="registration_lga"
                       data-error="wrong"
@@ -222,6 +259,9 @@
 export default {
   data() {
     return {
+      AkwaIbom: false,
+      eki: false,
+      lag: false,
       register: {
         name: '',
         phone_number: '',
@@ -254,6 +294,12 @@ export default {
     }
   },
   methods: {
+    state(id) {
+      if (id == 'AkwaIbom') {
+        this.AkwaIbom = true
+      }
+    },
+
     async registerNewUser() {
       try {
         let response = await this.$http.post(

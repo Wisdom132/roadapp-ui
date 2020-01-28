@@ -9,7 +9,7 @@
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-              <a href="/">Logout</a>
+              <nuxt-link to="/admin">Logout</nuxt-link>
             </li>
           </ul>
         </div>

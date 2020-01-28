@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h5>Get Vehicle Details</h5>
+          <h5>Verify Vehicle Particulars</h5>
         </div>
       </div>
       <div class="row">
@@ -13,7 +13,7 @@
               <form @submit.prevent="getDetailsUsingPlateNo">
                 <div class="row">
                   <div class="conatiner">
-                    <h6 style="text-align:center">Search vehicle plate Number</h6>
+                    <h6 style="text-align:center">Search vehicle by plate Number</h6>
                     <hr
                       style="width:60px;text-align:left;background-color:blue;height:2px;border:0px;"
                     />
@@ -21,7 +21,7 @@
                 </div>
                 <div class="row">
                   <div class="input-field col s12">
-                    <i class="material-icons prefix">mail_outline</i>
+                    <i class="fas fa-car"></i>
                     <input v-model="plate_number" class="validate" type="text" />
                     <label for="email">plate number</label>
                   </div>
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="col s12 m5 l5 offset-l1">
-          <h5>QR Code scanner</h5>
+          <h5>Verify Vehicle With QR Code</h5>
           <button @click="initScanner" class="btn blue darken-4">{{ status }}</button>
           <div v-if="qrscanner">
             <p class="error">{{ error }}</p>

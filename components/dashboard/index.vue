@@ -3,7 +3,7 @@
     <section>
       <div class="container">
         <div class="row">
-          <div class="col s12 m3">
+          <div class="col s12 m4">
             <div class="card blue darken-3 white-text">
               <div class="card-content valign-wrapper">
                 <div class="card-text">
@@ -16,11 +16,11 @@
               </div>
             </div>
           </div>
-          <div class="col s12 m3">
+          <div class="col s12 m4">
             <div class="card blue darken-3 white-text">
               <div class="card-content valign-wrapper">
                 <div class="card-text">
-                  <h6>0</h6>
+                  <h6>{{matrics.allvehicles}}</h6>
                   <p>Active Vehicles</p>
                 </div>
                 <div class="card-icon">
@@ -29,20 +29,8 @@
               </div>
             </div>
           </div>
-          <div class="col s12 m3">
-            <div class="card blue darken-3 white-text">
-              <div class="card-content valign-wrapper">
-                <div class="card-text">
-                  <h6>{{matrics.almostexpired}}</h6>
-                  <p>Almost Expired</p>
-                </div>
-                <div class="card-icon">
-                  <i class="material-icons medium valign">build</i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m3">
+
+          <div class="col s12 m4">
             <div class="card blue darken-3 white-text">
               <div class="card-content valign-wrapper">
                 <div class="card-text">
