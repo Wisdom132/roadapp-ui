@@ -13,9 +13,7 @@
               <form @submit.prevent="getDetailsUsingPlateNo">
                 <div class="row">
                   <div class="conatiner">
-                    <h6 style="text-align:center">
-                      Search vehicle plate Number
-                    </h6>
+                    <h6 style="text-align:center">Search vehicle plate Number</h6>
                     <hr
                       style="width:60px;text-align:left;background-color:blue;height:2px;border:0px;"
                     />
@@ -24,20 +22,14 @@
                 <div class="row">
                   <div class="input-field col s12">
                     <i class="material-icons prefix">mail_outline</i>
-                    <input
-                      v-model="plate_number"
-                      class="validate"
-                      type="text"
-                    />
+                    <input v-model="plate_number" class="validate" type="text" />
                     <label for="email">plate number</label>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col s12" style="text-align:center">
-                    <button class="btn blue darken-4 wave-effect" type="submit">
-                      Submit
-                    </button>
+                    <button class="btn blue darken-4 wave-effect" type="submit">Submit</button>
                   </div>
                 </div>
               </form>
@@ -45,16 +37,14 @@
           </div>
         </div>
         <div class="col s12 m5 l5 offset-l1">
-          <h5>Bar Code scanner</h5>
-          <button @click="initScanner" class="btn blue darken-4">
-            {{ status }}
-          </button>
+          <h5>QR Code scanner</h5>
+          <button @click="initScanner" class="btn blue darken-4">{{ status }}</button>
           <div v-if="qrscanner">
             <p class="error">{{ error }}</p>
 
             <p class="decode-result">
               Last result:
-              <b>{{ result }}</b>
+              <b>{{ plate_number }}</b>
             </p>
             <qrcode-stream @decode="onDecode" @init="onInit" />
           </div>
@@ -96,14 +86,14 @@ export default {
     initScanner() {
       this.qrscanner = !this.qrscanner
       if (this.qrscanner) {
-        this.status =  'Deactivate Scanner'
+        this.status = 'Deactivate Scanner'
       } else {
         this.status = 'Activate Scanner'
       }
     },
-    onDecode(result) {
-      if (result) {
-        alert(result)
+    onDecode(plate_number) {
+      if (plate_number) {
+        this.getDetailsUsingPlateNo()
       }
     },
     async onInit(promise) {

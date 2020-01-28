@@ -245,12 +245,12 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     if (process.client) {
-      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select')
-        var instances = M.FormSelect.init(elems, options)
-      })
+      // document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select')
+      var instances = M.FormSelect.init(elems)
+      // })
     }
   },
   methods: {
@@ -275,7 +275,7 @@ export default {
 }
 </script>
 <style scoped>
-i .fas {
-  color: red !important;
+.prefix {
+  color: #1d3c6e !important;
 }
 </style>
