@@ -99,7 +99,7 @@ export default {
     async getVehicles() {
       try {
         let vehicle = await this.$http.get('/admin/list-vehicles')
-        this.vehicles = vehicle.data.data
+        this.vehicles = vehicle.data.data.reverse()
         console.log(this.vehicles)
       } catch (err) {
         console.log(err)

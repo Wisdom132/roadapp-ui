@@ -4,11 +4,12 @@
       <div class="row">
         <div class="col s12 m4 l10 offset-l1 mt-5" style="margin-top:80px;">
           <div id="login-page" class="row">
+            <h3 class="center">Vehicle Registration Portal(Admin Only)</h3>
             <div class="col s12 z-depth-6 card-panel">
               <form class="login-form" @submit.prevent="registerNewUser">
                 <div class="row">
                   <div class="col s12 center">
-                    <h4>Vehicle Owner Details</h4>
+                    <h4 style>Vehicle Owner Details</h4>
                   </div>
                 </div>
                 <div class="row"></div>
@@ -157,7 +158,7 @@
 
                 <div class="row">
                   <div class="input-field col l4 s12">
-                    <i class="fas fa-users-class prefix"></i>
+                    <i class="fas fa-sort-numeric-up-alt prefix"></i>
                     <input
                       class="validate"
                       id="chassic_number"
@@ -205,10 +206,10 @@
                     <div v-show="lagos">
                       <select v-model="register.registration_lga">
                         <option value disabled selected>Choose LGA</option>
-                        <option value="Cal">Calabar Municipal</option>
-                        <option value="KMM">Ikom</option>
-                        <option value="BRA">Obubra</option>
-                        <option value="UDU">Obudu</option>
+                        <option value="LSR">Surulere</option>
+                        <option value="LSD">Osohi</option>
+                        <option value="APP">Apapa</option>
+                        <option value="JJJ">Ojo</option>
                       </select>
                     </div>
 
@@ -315,7 +316,11 @@ export default {
     state(id) {
       // console.log(id)
       if (id == 'AkwaIbom') {
-        this.akwaibom = !this.akwaibom
+        this.ekiti = false
+        this.akwaibom = true
+        this.abuja = false
+        this.lagos = false
+        this.crossriver = false
       }
       if (id == 'Ekiti') {
         this.ekiti = true
