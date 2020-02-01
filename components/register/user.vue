@@ -272,6 +272,15 @@
                 <div class="row">
                   <div class="input-field col l6 s12">
                     <i class="fas fa-key prefix"></i>
+                    <select v-model="register.insurance">
+                      <option value disabled selected>Insurance Agency</option>
+                      <option value="Anchor Insurance Ltd">Anchor Insurance Ltd</option>
+                      <option value="Cornerstone Insurance Plc">Cornerstone Insurance Plc</option>
+                    </select>
+                    <label for="insurance" data-error="wrong" data-success="right">Insurance</label>
+                  </div>
+                  <div class="input-field col l6 s12">
+                    <i class="fas fa-key prefix"></i>
                     <input
                       class="validate"
                       id="password"
@@ -358,6 +367,7 @@ export default {
         registration_state: '',
         registration_lga: '',
         MV_reg: '',
+        insurance: '',
         password: ''
       },
       sub_admin_password: 'test',
