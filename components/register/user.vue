@@ -6,7 +6,7 @@
           <div id="login-page" class="row">
             <h3 class="center">Vehicle Registration Portal(Admin Only)</h3>
             <div class="col s12 z-depth-6 card-panel">
-              <form class="login-form" @submit.prevent="registerNewUser">
+              <form class="login-form">
                 <div class="row">
                   <div class="col s12 center">
                     <h4 style>Vehicle Owner Details</h4>
@@ -16,7 +16,7 @@
                 <div class="row">
                   <div class="input-field col l6 s12">
                     <i class="fas fa-user prefix"></i>
-                    <input class="validate" id="name" v-model="register.name" type="text" />
+                    <input class="validate" id="name" v-model="register.name" type="text" required />
                     <label for="name" data-error="wrong" data-success="right">Name</label>
                   </div>
                   <div class="input-field col l6 s12">
@@ -26,6 +26,7 @@
                       id="phone"
                       v-model="register.phone_number"
                       type="number"
+                      required
                     />
                     <label for="phone" data-error="wrong" data-success="right">Phone</label>
                   </div>
@@ -33,12 +34,18 @@
                 <div class="row">
                   <div class="input-field col l6 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
-                    <input class="validate" id="address" v-model="register.address" type="text" />
+                    <input
+                      class="validate"
+                      id="address"
+                      v-model="register.address"
+                      type="text"
+                      required
+                    />
                     <label for="address" data-error="wrong" data-success="right">Address</label>
                   </div>
                   <div class="input-field col l3 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
-                    <input class="validate" id="phone" v-model="register.lga" type="text" />
+                    <input class="validate" id="phone" v-model="register.lga" type="text" required />
                     <label for="phone" data-error="wrong" data-success="right">LGA</label>
                   </div>
 
@@ -56,7 +63,13 @@
                 <div class="row">
                   <div class="input-field col l6 s12">
                     <i class="fas fa-map-marker-alt prefix"></i>
-                    <input class="validate" id="state" v-model="register.state" type="text" />
+                    <input
+                      class="validate"
+                      id="state"
+                      v-model="register.state"
+                      type="text"
+                      required
+                    />
                     <label for="state" data-error="wrong" data-success="right">State</label>
                   </div>
                   <div class="input-field col l6 s12">
@@ -66,6 +79,7 @@
                       id="nationality"
                       v-model="register.nationality"
                       type="text"
+                      required
                     />
                     <label for="nationality" data-error="wrong" data-success="right">Nationality</label>
                   </div>
@@ -82,6 +96,7 @@
                       id="vehicleMake"
                       v-model="register.vehicle_make"
                       type="text"
+                      required
                     />
                     <label for="vehicleMake" data-error="wrong" data-success="right">vehicle Make</label>
                   </div>
@@ -92,6 +107,7 @@
                       id="vehicle_model"
                       v-model="register.vehicle_model"
                       type="text"
+                      required
                     />
                     <label for="vehicle_model" data-error="wrong" data-success="right">Vehicle Model</label>
                   </div>
@@ -103,6 +119,7 @@
                       id="vehicle_production_year"
                       v-model="register.vehicle_production_year"
                       type="text"
+                      required
                     />
                     <label
                       for="vehicle_production_year"
@@ -137,6 +154,7 @@
                       id="vehicle_engine_number"
                       v-model="register.vehicle_engine_number"
                       type="text"
+                      required
                     />
                     <label
                       for="vehicle_engine_number"
@@ -151,6 +169,7 @@
                       id="vehicle_color"
                       v-model="register.vehicle_color"
                       type="text"
+                      required
                     />
                     <label for="vehicle_color" data-error="wrong" data-success="right">Vehicle Color</label>
                   </div>
@@ -258,16 +277,52 @@
                       id="password"
                       v-model="register.password"
                       type="password"
+                      required
                     />
                     <label for="password" data-error="wrong" data-success="right">Password</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col s12">
-                    <button class="btn blue darken-3" type="submit">Submit</button>
+                    <!-- <button class="btn blue darken-3" type="submit">Submit</button> -->
+                    <button data-target="modal1" class="btn modal-trigger blue darken-3">Submit</button>
                   </div>
                 </div>
               </form>
+
+              <!-- auth modal starts here   -->
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h4>Please insert passsword</h4>
+                  <form>
+                    <div class="input-field col l6 s12">
+                      <i class="fas fa-key prefix"></i>
+                      <input class="validate" v-model="test" id="password" type="password" required />
+                      <label for="password" data-error="wrong" data-success="right">password</label>
+                    </div>
+                  </form>
+                  <!-- @submit.prevent="registerNewUser" -->
+                </div>
+                <div class="modal-footer">
+                  <button @click="checkAuth" class="btn">Add Vehicle</button>
+                </div>
+                <!-- loader starts here  -->
+                <div class="preloader-wrapper big active" v-if="isLoading">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- loader ends here  -->
+              </div>
+              <!-- auth modal ends here  -->
             </div>
           </div>
         </div>
@@ -276,6 +331,7 @@
   </section>
 </template>
 <script>
+import swal from 'sweetalert'
 export default {
   data() {
     return {
@@ -303,7 +359,10 @@ export default {
         registration_lga: '',
         MV_reg: '',
         password: ''
-      }
+      },
+      sub_admin_password: 'test',
+      test: '',
+      isLoading: false
     }
   },
   mounted() {
@@ -313,6 +372,16 @@ export default {
     }
   },
   methods: {
+    checkAuth() {
+      if (this.sub_admin_password === this.test) {
+        var elem = document.querySelectorAll('.modal')
+        var instance = M.Modal.getInstance(elem)
+        instance.destroy()
+        this.registerNewUser()
+      } else {
+        swal('Error', 'Wrong Password', 'error')
+      }
+    },
     state(id) {
       // console.log(id)
       if (id == 'AkwaIbom') {
@@ -353,18 +422,21 @@ export default {
     },
 
     async registerNewUser() {
+      this.isLoading = true
       try {
         let response = await this.$http.post(
           '/admin/registervehicle',
           this.register
         )
         this.register = {}
+        this.isLoading = false
         swal(
           'Success',
           `Hello "${response.data.data.vehicle_owner_details.name}" Your Plate number is "${response.data.data.plate_number}"`,
           'success'
         )
       } catch (err) {
+        this.isLoading = false
         swal('Error', 'Something Went Wrong', 'error')
         console.log(err)
       }

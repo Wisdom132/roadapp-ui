@@ -56,7 +56,9 @@
                 <tr>
                   <th>Id</th>
                   <th>Vehicle Owner</th>
-                  <th>Phone Number</th>
+                  <th>Vehicle Make</th>
+                  <th>Vehicle Model</th>
+                  <th>State</th>
                   <th>Plate Number</th>
                   <th>Mv-Reg</th>
                   <th>Date Issued</th>
@@ -65,6 +67,21 @@
               </thead>
 
               <tbody>
+                <!-- loader starts here  -->
+                <div class="preloader-wrapper big active" v-if="isLoading">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- loader ends here  -->
                 <tr
                   v-for="(vehicle,index) in vehicles"
                   :key="index"
@@ -72,7 +89,9 @@
                 >
                   <td>{{index + 1}}</td>
                   <td>{{vehicle.vehicle_owner_details.name}}</td>
-                  <td>{{vehicle.vehicle_owner_details.phone_number}}</td>
+                  <td>{{vehicle.vehicle_information.vehicle_make}}</td>
+                  <td>{{vehicle.vehicle_information.vehicle_model}}</td>
+                  <td>{{vehicle.vehicle_information.registration_state}}</td>
                   <td>{{vehicle.plate_number}}</td>
                   <td>{{vehicle._id}}</td>
                   <td>{{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}</td>
@@ -92,17 +111,21 @@ export default {
   data() {
     return {
       vehicles: [],
-      matrics: {}
+      matrics: {},
+      isLoading: false
     }
   },
   methods: {
     async getVehicles() {
+      this.isLoading = true
       try {
         let vehicle = await this.$http.get('/admin/list-vehicles')
         this.vehicles = vehicle.data.data.reverse()
         console.log(this.vehicles)
+        this.isLoading = false
       } catch (err) {
         console.log(err)
+        this.isLoading = false
       }
     },
     async getVehicleMatrics() {
