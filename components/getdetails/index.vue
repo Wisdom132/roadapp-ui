@@ -10,7 +10,7 @@
         <div class="col s12 m5 l5">
           <div id="login-page" class="row">
             <div class="col s12 z-depth-6 card-panel">
-              <form @submit.prevent="getDetailsUsingPlateNo">
+              <form @submit.prevent="getDetailsUsingPlateNo(plate_number)">
                 <div class="row">
                   <div class="conatiner">
                     <h6 style="text-align:center">Search vehicle by plate Number</h6>
@@ -60,17 +60,17 @@ export default {
   data() {
     return {
       status: 'Activate Scanner',
-      plate_number: '',
+      plate_number: null,
       qrscanner: false,
       result: '',
       error: ''
     }
   },
   methods: {
-    async getDetailsUsingPlateNo() {
+    async getDetailsUsingPlateNo(plate_number) {
       try {
         let response = await this.$http.post('/admin/get-by-platenumber', {
-          plate_number: this.plate_number
+          plate_number: plate_number
         })
         if (response.data.data == null) {
           swal('Opps', 'User Not Found', 'error')
@@ -94,8 +94,7 @@ export default {
     },
     onDecode(plate_number) {
       if (plate_number) {
-        alert(plate_number)
-        // this.getDetailsUsingPlateNo()
+        this.getDetailsUsingPlateNo(plate_number)
       }
     },
     async onInit(promise) {
