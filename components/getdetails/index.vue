@@ -94,7 +94,8 @@ export default {
     },
     onDecode(plate_number) {
       if (plate_number) {
-        this.getDetailsUsingPlateNo()
+        alert(plate_number)
+        // this.getDetailsUsingPlateNo()
       }
     },
     async onInit(promise) {
