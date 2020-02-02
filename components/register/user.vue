@@ -294,44 +294,10 @@
                 <div class="row">
                   <div class="col s12">
                     <!-- <button class="btn blue darken-3" type="submit">Submit</button> -->
-                    <button data-target="modal1" class="btn modal-trigger blue darken-3">Submit</button>
+                    <button class="btn" @click.prevent="checkAuth">Submit</button>
                   </div>
                 </div>
               </form>
-
-              <!-- auth modal starts here   -->
-              <div id="modal1" class="modal">
-                <div class="modal-content">
-                  <h4>Please insert passsword</h4>
-                  <form>
-                    <div class="input-field col l6 s12">
-                      <i class="fas fa-key prefix"></i>
-                      <input class="validate" v-model="test" id="password" type="password" required />
-                      <label for="password" data-error="wrong" data-success="right">password</label>
-                    </div>
-                  </form>
-                  <!-- @submit.prevent="registerNewUser" -->
-                </div>
-                <div class="modal-footer">
-                  <button @click="checkAuth" class="btn">Add Vehicle</button>
-                </div>
-                <!-- loader starts here  -->
-                <div class="preloader-wrapper big active" v-if="isLoading">
-                  <div class="spinner-layer spinner-blue-only">
-                    <div class="circle-clipper left">
-                      <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                      <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                      <div class="circle"></div>
-                    </div>
-                  </div>
-                </div>
-                <!-- loader ends here  -->
-              </div>
-              <!-- auth modal ends here  -->
             </div>
           </div>
         </div>
@@ -366,7 +332,6 @@ export default {
         chassic_number: '',
         registration_state: '',
         registration_lga: '',
-        MV_reg: '',
         insurance: '',
         password: ''
       },
@@ -383,14 +348,37 @@ export default {
   },
   methods: {
     checkAuth() {
-      if (this.sub_admin_password === this.test) {
-        var elem = document.querySelectorAll('.modal')
-        var instance = M.Modal.getInstance(elem)
-        instance.destroy()
-        this.registerNewUser()
-      } else {
-        swal('Error', 'Wrong Password', 'error')
-      }
+      swal('Add New Vehicle', {
+        content: 'input',
+        button: {
+          text: 'Register',
+          closeModal: false
+        }
+      }).then(value => {
+        if (this.sub_admin_password === value) {
+          const values = Object.values(this.register)
+          const caught = values.find(data => data === '')
+
+          if (caught === '') {
+            return swal('Error', 'Please complete form', 'error')
+          } else {
+            return this.$http
+              .post('/admin/registervehicle', this.register)
+              .then(response => {
+                swal('Success', 'Vehicle Registration Successful', 'success')
+                console.log(response)
+
+                this.register = {}
+              })
+              .catch(err => {
+                swal('Error', 'Something Went Wrong', 'error')
+                console.log(err)
+              })
+          }
+        } else {
+          swal('Error', 'Incorrect Password', 'error')
+        }
+      })
     },
     state(id) {
       // console.log(id)

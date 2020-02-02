@@ -638,7 +638,7 @@ export default {
   },
   methods: {
     initModal() {
-      swal('Write something here:', {
+      swal('Update Vehicle Details', {
         content: 'input',
         button: {
           text: 'update',
@@ -654,8 +654,8 @@ export default {
             .then(response => {
               swal('Success', 'Vehicle Updated Successfully', 'success')
               this.getVehicleDetails(this.$route.params.id)
-              console.log(response);
-              this.display = false;
+              console.log(response)
+              this.display = false
             })
             .catch(err => {
               swal('Error', 'Something Went Wrong', 'error')
