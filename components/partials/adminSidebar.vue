@@ -41,11 +41,7 @@
           <i class="fas fa-search text-light"></i>Verify Vehicle Particulars
         </nuxt-link>
       </li>
-      <li>
-        <a herf="#" class="waves-effect white-text">
-          <i class="fas fa-edit text-light"></i>Edit Vehicle
-        </a>
-      </li>
+
       <li>
         <nuxt-link to="/admin" class="waves-effect white-text">
           <i class="fas fa-lock text-light"></i>Logout

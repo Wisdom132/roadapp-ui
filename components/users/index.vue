@@ -17,7 +17,7 @@
     <!-- loader ends here  -->
     <div class="container" v-else>
       <div class="row">
-        <div class="col s12 m4 l4" v-for="(vehicle, index) in vehicles" :key="index">
+        <div class="col" v-for="(vehicle, index) in vehicles" :key="index">
           <div class="card horizontal">
             <div class="card-image">
               <img :src="vehicle.qrcode" class="responsive-img" />
