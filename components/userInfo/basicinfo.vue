@@ -18,10 +18,11 @@
         <nav class="nav-extended blue darken-3" style="margin-top:20px;">
           <div class="container">
             <div class="nav-wrapper">
-              <a class="brand-logo">
+              <a class="brand-logo" style="margin-bottom:15px !important;">
                 <h6>{{vehicle.vehicle_owner_details.name}}</h6>
               </a>
-              <ul class="right hide-on-med-and-down">
+              <br />
+              <ul class="right">
                 <li>
                   <a>{{vehicle.vehicle_information.vehicle_make}}</a>
                 </li>
@@ -136,7 +137,9 @@
                     <b>Federal Republic Of Nigeria</b>
                   </h6>
                   <p>NATIONAL CERTIFICATE OF ROADWORTHINESS</p>
-                  <p>AKWA IBOM STATE</p>
+                  <p style="text-transform:uppercase">
+                    <b>{{vehicle.vehicle_information.registration_state}} State</b>
+                  </p>
                   <i>Issued Under Regulations 31(2) Of the Road Traffic Regulations</i>
                 </div>
               </div>
