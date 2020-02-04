@@ -47,7 +47,7 @@
                 </ul>
               </div>
               <div class="card-action">
-                <nuxt-link :to="'/admin/vehicledetails/' + vehicle._id">Details</nuxt-link>
+                <nuxt-link :to="'/admin/vehicledetails/' + vehicle._id">View Particulars</nuxt-link>
               </div>
             </div>
           </div>
