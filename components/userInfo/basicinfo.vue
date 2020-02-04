@@ -94,32 +94,33 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{vehicle.dateIssued}}
+                  <b>{{vehicle.dateIssued}}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{vehicle.expiryDate}}
+                  <b>{{vehicle.expiryDate}}</b>
                 </li>
 
                 <li class="collection-item">
                   Engin No:
                   <br />
-                  {{vehicle.vehicle_information.vehicle_engine_number}}
+                  <b>{{vehicle.vehicle_information.vehicle_engine_number}}</b>
                 </li>
                 <li class="collection-item">
                   Chassis No:
                   <br />
-                  {{vehicle.vehicle_information.chassic_number}}
+                  <b>{{vehicle.vehicle_information.chassic_number}}</b>
                 </li>
                 <li class="collection-item">
                   Address:
                   <br />
-                  {{vehicle.vehicle_owner_details.address}}
+                  <b>{{vehicle.vehicle_owner_details.address}}</b>
                 </li>
                 <li class="collection-item">
                   Fee:
-                  <br />2,000
+                  <br />
+                  <b>2,000</b>
                 </li>
               </ul>
             </div>
@@ -147,19 +148,22 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{vehicle.dateIssued}}
+                  <b>{{vehicle.dateIssued}}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{vehicle.expiryDate}}
+                  <b>{{vehicle.expiryDate}}</b>
                 </li>
                 <li class="collection-item">
                   Class:
                   <br />
-                  {{vehicle.vehicle_information.vehicle_class}}
+                  <b>{{vehicle.vehicle_information.vehicle_class}}</b>
                 </li>
-                <li class="collection-item">Fee:2,000</li>
+                <li class="collection-item">
+                  Fee:
+                  <strong>2,000</strong>
+                </li>
               </ul>
             </div>
           </div>
@@ -186,26 +190,29 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{vehicle.dateIssued}}
+                  <b>{{vehicle.dateIssued}}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{vehicle.expiryDate}}
+                  <b>{{vehicle.expiryDate}}</b>
                 </li>
                 <li class="collection-item">Old Engine No.:237237623765</li>
                 <li class="collection-item">
                   New Engine No.:
                   <br />
-                  {{vehicle.vehicle_information.vehicle_engine_number}}
+                  <b>{{vehicle.vehicle_information.vehicle_engine_number}}</b>
                 </li>
                 <li class="collection-item">Old Chassis No.:72538752375</li>
                 <li class="collection-item">
                   New Chassis No.:
                   <br />
-                  {{vehicle.vehicle_information.chassic_number}}
+                  <b>{{vehicle.vehicle_information.chassic_number}}</b>
                 </li>
-                <li class="collection-item">Fee:2,000</li>
+                <li class="collection-item">
+                  Fee:
+                  <b>2,000</b>
+                </li>
               </ul>
             </div>
           </div>
@@ -222,7 +229,9 @@
                     <b>Federal Republic Of Nigeria</b>
                   </h6>
                   <p>(uniform Licensing Scheme)</p>
-                  <p>AKWA IBOM STATE</p>
+                  <p style="text-transform:uppercase">
+                    <b>{{vehicle.vehicle_information.registration_state}} STATE</b>
+                  </p>
                   <h5>Proof Of Ownership Certificate</h5>
                 </div>
               </div>
@@ -230,24 +239,27 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{vehicle.dateIssued}}
+                  <b>{{vehicle.dateIssued}}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{vehicle.expiryDate}}
+                  <b>{{vehicle.expiryDate}}</b>
                 </li>
                 <li class="collection-item">
                   purpose(class):
                   <br />
-                  {{vehicle.vehicle_information.vehicle_class}}
+                  <b>{{vehicle.vehicle_information.vehicle_class}}</b>
                 </li>
                 <li class="collection-item">
                   LIC State:
                   <br />
-                  {{vehicle.vehicle_information.registration_state}}
+                  <b>{{vehicle.vehicle_information.registration_state}}</b>
                 </li>
-                <li class="collection-item">Fee:2,000</li>
+                <li class="collection-item">
+                  Fee:
+                  <b>2,000</b>
+                </li>
               </ul>
             </div>
           </div>
@@ -284,12 +296,12 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{vehicle.dateIssued}}
+                  <b>{{vehicle.dateIssued}}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{vehicle.expiryDate}}
+                  <b>{{vehicle.expiryDate}}</b>
                 </li>
                 <li class="collection-item">Policy Holder(user)</li>
                 <li class="collection-item">Policy No</li>
@@ -311,35 +323,42 @@
                 <li class="collection-item">
                   Vehicle Licene
                   <br />
-                  <del>N</del>2,000
+                  <del>N</del>
+                  <b>2,000</b>
                 </li>
                 <li class="collection-item">
                   National Certidicate of RoadWorthiness
                   <br />
-                  <del>N</del>2,000
+                  <del>N</del>
+                  <b>2,000</b>
                 </li>
                 <li class="collection-item">
                   Change of ownership
                   <br />
-                  <del>N</del>2,000
+                  <del>N</del>
+                  <b>2,000</b>
                 </li>
                 <li class="collection-item">
                   Prove of ownership
                   <br />
-                  <del>N</del>2,000
+                  <del>N</del>
+                  <b>2,000</b>
                 </li>
                 <li class="collection-item">
                   Certificate Of Insurance
                   <br />
-                  <del>N</del>2,000
+                  <del>N</del>
+                  <b>2,000</b>
                 </li>
                 <li class="collection-item">
                   Total
                   <br />
-                  <del>N</del>10,000
+                  <del>N</del>
+                  <b>10,000</b>
                 </li>
                 <li class="collection-item">
                   <button
+                    :disabled="status == false"
                     @click="initModal"
                     class="btn"
                   >{{ modal ? 'Cancle payment' : 'Renew Paticulars' }}</button>
@@ -390,15 +409,20 @@ export default {
       amount: 1000000, // in kobo
       vehicle: null,
       modal: false,
-      useremail: null
+      useremail: null,
+      status: false
     }
   },
   methods: {
     initModal() {
       this.modal = !this.modal
     },
+    changeStatus() {
+      setTimeout(() => {
+        this.status = true
+      }, 30000)
+    },
     async callback(response) {
-      debugger
       try {
         let response = await this.$http.put(
           `/admin/renew-vehicle/${this.vehicle._id}`,
@@ -443,6 +467,7 @@ export default {
   },
 
   created() {
+    this.changeStatus()
     this.getUserDetails()
   }
 }

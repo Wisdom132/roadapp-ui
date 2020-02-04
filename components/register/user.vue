@@ -367,7 +367,6 @@ export default {
               .then(response => {
                 swal('Success', 'Vehicle Registration Successful', 'success')
                 console.log(response)
-
                 this.register = {}
               })
               .catch(err => {

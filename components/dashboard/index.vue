@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col s12 m4">
-            <div class="card blue darken-3 white-text">
+            <div class="card blue darken-3 white-text" @click="getVehicles">
               <div class="card-content valign-wrapper">
                 <div class="card-text">
                   <h6>{{matrics.allvehicles}}</h6>
@@ -16,7 +16,7 @@
               </div>
             </div>
           </div>
-          <div class="col s12 m4">
+          <div class="col s12 m4" @click="getVehicles">
             <div class="card blue darken-3 white-text">
               <div class="card-content valign-wrapper">
                 <div class="card-text">
@@ -31,7 +31,7 @@
           </div>
 
           <div class="col s12 m4">
-            <div class="card blue darken-3 white-text">
+            <div class="card blue darken-3 white-text" @click="returnEmpty">
               <div class="card-content valign-wrapper">
                 <div class="card-text">
                   <h6>{{matrics.expired}}</h6>
@@ -116,6 +116,9 @@ export default {
     }
   },
   methods: {
+    returnEmpty() {
+      this.vehicles = []
+    },
     async getVehicles() {
       this.isLoading = true
       try {

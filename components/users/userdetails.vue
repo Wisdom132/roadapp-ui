@@ -402,31 +402,32 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}</b>
                 </li>
 
                 <li class="collection-item">
                   Engin No:
                   <br />
-                  {{vehicle.vehicle_information.vehicle_engine_number}}
+                  <b>{{vehicle.vehicle_information.vehicle_engine_number}}</b>
                 </li>
                 <li class="collection-item">
                   Chassis No:
                   <br />
-                  {{vehicle.vehicle_information.chassic_number}}
+                  <b>{{vehicle.vehicle_information.chassic_number}}</b>
                 </li>
                 <li class="collection-item">
                   MV Reg:
                   <br />
-                  {{vehicle._id}}
+                  <b>{{vehicle._id}}</b>
                 </li>
                 <li class="collection-item">
                   Fee:
+                  <b>N2,000</b>
                   <br />
                   <span class="new badge" data-badge-caption="Cleared"></span>
                 </li>
@@ -471,7 +472,9 @@
                     <b>Federal Republic Of Nigeria</b>
                   </h6>
                   <p>NATIONAL CERTIFICATE OF ROADWORTHINESS</p>
-                  <p>AKWA IBOM STATE</p>
+                  <p style="text-transform:uppercase">
+                    <b>{{vehicle.vehicle_information.registration_state}} STATE</b>
+                  </p>
                   <i>Issued Under Regulations 31(2) Of the Road Traffic Regulations</i>
                 </div>
               </div>
@@ -479,20 +482,21 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
                   Class:
                   <br />
-                  {{vehicle.vehicle_information.vehicle_class}}
+                  <b>{{vehicle.vehicle_information.vehicle_class}}</b>
                 </li>
                 <li class="collection-item">
                   Fee:
+                  <b>N2,000</b>
                   <span class="new badge" data-badge-caption="Cleared"></span>
                 </li>
               </ul>
@@ -521,27 +525,28 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">Old Engine No.:237237623765</li>
                 <li class="collection-item">
                   New Engine No.:
                   <br />
-                  {{vehicle.vehicle_information.vehicle_engine_number}}
+                  <b>{{vehicle.vehicle_information.vehicle_engine_number}}</b>
                 </li>
                 <li class="collection-item">Old Chassis No.:72538752375</li>
                 <li class="collection-item">
                   New Chassis No.:
                   <br />
-                  {{vehicle.vehicle_information.chassic_number}}
+                  <b>{{vehicle.vehicle_information.chassic_number}}</b>
                 </li>
                 <li class="collection-item">
                   Fee:
+                  <b>N2,000</b>
                   <span class="new badge" data-badge-caption="Cleared"></span>
                 </li>
               </ul>
@@ -568,25 +573,26 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
-                  purpose(class):
+                  purpose:
                   <br />
-                  {{vehicle.vehicle_information.vehicle_class}}
+                  <b>{{vehicle.vehicle_information.vehicle_class}}</b>
                 </li>
                 <li class="collection-item">
                   LIC State:
                   <br />
-                  {{vehicle.vehicle_information.registration_state}}
+                  <b>{{vehicle.vehicle_information.registration_state}}</b>
                 </li>
                 <li class="collection-item">
                   Fee:
+                  <b>N2,000</b>
                   <span class="new badge" data-badge-caption="Cleared"></span>
                 </li>
               </ul>
@@ -625,24 +631,26 @@
                 <li class="collection-item">
                   Issued
                   <br />
-                  {{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.dateIssued).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
                   Expired
                   <br />
-                  {{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}
+                  <b>{{ moment(vehicle.expiryDate).format('YYYY-MM-DD') }}</b>
                 </li>
                 <li class="collection-item">
                   Policy Holder:
                   <br />
-                  {{vehicle.vehicle_owner_details.name}}
+                  <b>{{vehicle.vehicle_owner_details.name}}</b>
                 </li>
                 <li class="collection-item">
                   Policy No:
-                  <br />282382
+                  <br />
+                  <b>282382</b>
                 </li>
                 <li class="collection-item">
                   Fee:
+                  <b>2,000</b>
                   <span class="new badge" data-badge-caption="Cleared"></span>
                 </li>
               </ul>

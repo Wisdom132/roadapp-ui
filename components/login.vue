@@ -75,12 +75,12 @@ export default {
         } else {
           this.isLoading = false
           console.log('You Cant Login')
-          swal('Opps', 'You cant Login at this Time', 'error')
+          swal('Opps', 'Wrong Login Details', 'error')
         }
       } catch (err) {
         this.isLoading = false
         console.log(err)
-        swal('Opps', 'You cant Login at this Time', 'error')
+        swal('Opps', 'Wrong Login Details', 'error')
       }
     }
   }
