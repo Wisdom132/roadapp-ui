@@ -3,7 +3,7 @@
     <nav class="blue darken-4">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">VPN ADMIN PANEL</a>
+          <a href="#" class="brand-logo">VPNS (Admin)</a>
           <a href="#" data-target="slide-out" class="sidenav-trigger">
             <i class="material-icons">menu</i>
           </a>
@@ -19,6 +19,6 @@
 </template>
 <style scoped>
 .brand-logo {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 </style>
